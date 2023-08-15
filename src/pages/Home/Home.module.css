@@ -1,0 +1,22 @@
+
+.Home .Search {
+    margin: 2rem 0;
+}
+
+.Home .Category button{
+    background-color: transparent;
+    border: none;
+    color: #000;
+}
+
+.Home .Category button:hover {
+    text-decoration: underline;
+}
+
+.Home main {
+    margin: 4rem 0;
+}
+
+.Home main article hr{
+    margin-top: 1rem;
+}
