@@ -4,6 +4,8 @@ import {useState} from 'react';
 import { useLoaderData, Link, useSearchParams} from 'react-router-dom';
 import styles from './Home.module.css';
 
+import Header from '../../components/Header';
+
 const Home = () => {
   const posts = useLoaderData();
 
@@ -23,7 +25,7 @@ const Home = () => {
   };
   return (
     <div className={`${styles.Home} Page`}>
-        <h1><u>SIMPLE JS + SQL BLOG</u></h1>
+        <Header />
         <div className={styles.Search}>
             <input name="q" value={search} onChange={(e) => {setSearch(e.target.value)}}/>
             <button onClick={(e) => handleSearch(e)}>Search posts</button>
