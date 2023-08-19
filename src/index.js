@@ -5,32 +5,41 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
-  RouterProvider,
+  RouterProvider
 } from "react-router-dom";
+
 
 import Post from './pages/Post/Post';
 import Home from './pages/Home/Home';
 
+const productionDBURL = 'https://sql-blog-express-server.onrender.com/';
+const devDBURL = 'http://localhost:10000/';
+
+
+
+// posts loader
 const postsLoader = async (request) => {
   const query = (request.url.split("?")[1])
   try {
-    const res = await fetch(`https://sql-blog-express-server.onrender.com/posts?` + query)
-    return res;
+    const posts = await fetch(productionDBURL + 'posts?' + query)
+    return posts;
   } catch (error) {
     console.log(error)
   }
 
 };
 
+// single post loader
 const postLoader = async (postId) => {
   try {
-    const res = await fetch(`https://sql-blog-express-server.onrender.com/posts/` + postId)
-    return res;
+    const post = await fetch(productionDBURL + 'posts/' + postId)
+    return post;
   } catch (error) {
     console.log(error)
   }
 
 };
+
 
 const router = createBrowserRouter([
   {
@@ -42,7 +51,7 @@ const router = createBrowserRouter([
     path: "/posts/:postId",
     loader: ({params}) => postLoader(params.postId),
     element: <Post />
-  },
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

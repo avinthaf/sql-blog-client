@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+a {
+  color: inherit;
+}
+
 button {
   background-color: #000;
   color: #fff;
@@ -22,7 +26,15 @@ button:hover {
   cursor: pointer;
 }
 
+
 .Page {
-  text-align: center;
-  padding: 0 20vw;
+  padding: 0 5vw;
 }
+
+.Page .PostHeading {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+
+

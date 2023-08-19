@@ -3,10 +3,16 @@
     margin: 2rem 0;
 }
 
+.Home .Category {
+}
+
 .Home .Category button{
     background-color: transparent;
-    border: none;
     color: #000;
+
+    font-weight: 700;
+    padding: 0.5rem;
+    margin-right: 1rem;
 }
 
 .Home .Category button:hover {
@@ -19,4 +25,15 @@
 
 .Home main article hr{
     margin-top: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .Home .Category {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .Home .Category button {
+        margin-bottom: 1rem;
+    }
 }

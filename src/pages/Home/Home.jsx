@@ -8,6 +8,7 @@ import Header from '../../components/Header';
 
 const Home = () => {
   const posts = useLoaderData();
+  console.log(posts)
 
   let [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState("");
@@ -23,6 +24,21 @@ const Home = () => {
   function filterByCategory(event) {
     setSearchParams({ct_id: event.target.id})
   };
+
+  function trimTextTo50Words(text) {
+    // Split the text into an array of words
+    const words = text.split(' ');
+  
+    // If the text is already 50 words or less, return it as is
+    if (words.length <= 50) {
+      return text;
+    }
+  
+    // Otherwise, join the first 50 words and add an ellipsis
+    const trimmedText = words.slice(0, 50).join(' ') + '...';
+    return trimmedText;
+  };
+
   return (
     <div className={`${styles.Home} Page`}>
         <Header />
@@ -38,16 +54,18 @@ const Home = () => {
         </div>
         <main>
             {
-            posts && posts.map(({post_id, title, content}) => (
+            posts.length  > 0 ?
+            posts.map(({post_id, title, content}) => (
                 <article key={post_id}>
-                    <h3>{title}</h3>
-                    <p>{content}</p>
+                    <h3 className="PostHeading">{title}</h3>
+                    <p>{trimTextTo50Words(content)}</p>
                     <Link to={`/posts/${post_id}`}>
-                        <button>Read more</button>
+                        <button className="ReadMore">Read more</button>
                     </Link>
                     <hr />
                 </article>
             ))
+            : <h4>No posts to display.</h4>
             }
         </main>
     </div>
