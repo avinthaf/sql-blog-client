@@ -26,6 +26,11 @@ button:hover {
   cursor: pointer;
 }
 
+button.ReadMore {
+  padding: 0.5rem;
+  border: 2px solid #000;
+}
+
 input {
   font-size: 16px !important;
 }
