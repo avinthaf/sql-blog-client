@@ -1,14 +1,25 @@
 
 .Home .Search {
     margin: 2rem 0;
+    width: 60%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
 }
 
-.Home .Category {
+.Home .Search input {
+    padding: 0.5rem;
+    border: 1px solid #000;
+}
+
+.Home .Search button {
+    padding: 0.5rem;
+    border: 2px solid #000;
 }
 
 .Home .Category button{
     background-color: transparent;
     color: #000;
+    border: 2px solid #000;
 
     font-weight: 700;
     padding: 0.5rem;
@@ -27,7 +38,17 @@
     margin-top: 1rem;
 }
 
+@media screen and (max-width: 900px) {
+    .Home .Search {
+        width: 80%
+    }
+} 
+
 @media screen and (max-width: 600px) {
+    .Home .Search {
+        width: 100%
+    }
+
     .Home .Category {
         display: grid;
         grid-template-columns: 1fr 1fr;
